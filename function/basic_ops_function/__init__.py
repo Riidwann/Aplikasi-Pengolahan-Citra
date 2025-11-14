@@ -1,0 +1,1 @@
+#file ini untuk mempermudah python membaca direktori folder
