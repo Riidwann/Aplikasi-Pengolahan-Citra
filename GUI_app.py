@@ -1,5 +1,6 @@
 from tkinter import *
 from menu.basic_ops import *
+from function.basic_ops_function.add_function import *
 
 #Setup window
 window = Tk()

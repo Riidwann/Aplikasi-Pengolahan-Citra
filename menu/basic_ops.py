@@ -1,4 +1,5 @@
 from tkinter import Menu
+from function.basic_ops_function.add_function import *
 
 def basic_ops_menu(menubar):
   #Tab basic ops
@@ -12,7 +13,7 @@ def basic_ops_menu(menubar):
   #Submenu arithmetic -start-
   arithmeticMenu = Menu(basicOps, tearoff=0)
   basicOps.add_cascade(label="Arithmetic", menu=arithmeticMenu)
-  arithmeticMenu.add_command(label="Add (+)")
+  arithmeticMenu.add_command(label="Add (+)", command=add)
   arithmeticMenu.add_command(label="Subtract (-)")
   arithmeticMenu.add_command(label="Multiply (x)")
   arithmeticMenu.add_command(label="Divide (/)")

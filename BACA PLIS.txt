@@ -1,0 +1,22 @@
+Hai.. Aku Ridwan
+
+Beberapa saran aku dalam pengerjaan project sks ini:
+1. Taati aturan bersama
+2. Buat secara modular biar keren
+3. file GUI_app.py bersih dan hanya memanggil fungsi dari folder menu
+
+Aturan yang harus kita ikuti bersama:
+1. Penamaan file dan fungsi yang memiliki >1 kata menggunakan " _ " underscore
+2. Nama folder diawali huruf kecil
+3. Kumpulan file yang berisi fungsi untuk menampilkan menu berada pada folder menu
+4. Kumpulan file yang berisi fungsi untuk operasi pada menu tersebut berada pada folder function
+5. Saling backup sesama tim
+6. Saling menghormati sesama tim
+7. Tidak boleh marah marah
+8. Jika ada error, maka kesalahan bersama
+9. Jadi nocturnal
+10. Tetap semangat dan pantang menyerah demi startup kita
+
+Planning kita hari SELASA sudah RECORD VIDEO
+
+SEMANGAT GENG
