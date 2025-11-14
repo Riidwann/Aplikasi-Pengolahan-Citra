@@ -11,7 +11,7 @@ window.title("Aplikasi Pengolahan Citra Digital-copyright © dedlain.Dev(2023)")
 menubar = Menu(window)
 window.config(menu=menubar)
 
-#Image holder
+#Image
 image_label = Label(window, text="Belum ada gambar yang dibuka")
 image_label.pack(fill="both", expand=True, padx=20, pady=20)
 
@@ -19,6 +19,6 @@ image_label.pack(fill="both", expand=True, padx=20, pady=20)
 file_menu(menubar, image_label, window)
 
 #Tab operasi
-basic_ops_menu(menubar)
+basic_ops_menu(menubar, image_label)
 
 window.mainloop()

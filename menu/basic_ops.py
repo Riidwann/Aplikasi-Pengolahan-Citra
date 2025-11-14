@@ -1,11 +1,12 @@
 from tkinter import Menu
 from function.basic_ops_function.add_function import *
+from function.basic_ops_function.negative_function import *
 
-def basic_ops_menu(menubar):
+def basic_ops_menu(menubar, image_label):
   #Tab basic ops
   basicOps = Menu(menubar, tearoff=0)
   menubar.add_cascade(label="Basic Ops", menu=basicOps)
-  basicOps.add_command(label="Negative")
+  basicOps.add_command(label="Negative", command=lambda:negative(image_label), )
   basicOps.add_command(label="Thresholding")
   basicOps.add_command(label="Convolution")
   basicOps.add_command(label="Fourier Transform")
