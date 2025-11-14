@@ -1,8 +1,0 @@
-from tkinter import *
-
-#Setup window
-window = Tk()
-window.geometry("600x500")
-window.title("Aplikasi Pengolahan Citra Ridwan Ganteng Banget")
-
-window.mainloop()
