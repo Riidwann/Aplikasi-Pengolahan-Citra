@@ -1,17 +1,23 @@
 from tkinter import Menu
-from function.basic_ops_function.add_function import *
-from function.basic_ops_function.negative_function import *
-from function.basic_ops_function.add_function import *
-from function.basic_ops_function.substract_function import *
-from function.basic_ops_function.multiply_function import *
+from function.basic_ops_function.arithmethics.add_function import *
+from function.basic_ops_function.arithmethics.negative_function import *
+from function.basic_ops_function.arithmethics.substract_function import *
+from function.basic_ops_function.arithmethics.multiply_function import *
+from function.basic_ops_function.arithmethics.divide_function import *
+from function.basic_ops_function.boolean.not_function import *
+from function.basic_ops_function.boolean.and_function import *
+from function.basic_ops_function.boolean.or_function import *
+from function.basic_ops_function.boolean.xor_function import *
+from function.basic_ops_function.thresholding_function import *
+from function.basic_ops_function.convolution_function import *
 
 def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   #Tab basic ops
   basicOps = Menu(menubar, tearoff=0)
   menubar.add_cascade(label="Basic Ops", menu=basicOps)
   basicOps.add_command(label="Negative", command=lambda:negative(image_label, image_result_label, result_text_label), )
-  basicOps.add_command(label="Thresholding")
-  basicOps.add_command(label="Convolution")
+  basicOps.add_command(label="Thresholding", command=lambda:thresholding(image_label, image_result_label, result_text_label))
+  basicOps.add_command(label="Convolution", command=lambda:convolution(image_label, image_result_label, result_text_label))
   basicOps.add_command(label="Fourier Transform")
 
   #Submenu arithmetic -start-
@@ -20,16 +26,16 @@ def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   arithmeticMenu.add_command(label="Add (+)", command=lambda:add(image_label, image_result_label, result_text_label))
   arithmeticMenu.add_command(label="Subtract (-)", command=lambda:substract(image_label, image_result_label, result_text_label))
   arithmeticMenu.add_command(label="Multiply (x)", command=lambda:multiply(image_label, image_result_label, result_text_label))
-  arithmeticMenu.add_command(label="Divide (/)")
+  arithmeticMenu.add_command(label="Divide (/)", command=lambda:divide(image_label, image_result_label, result_text_label))
   #Submenu arithmetic -end-
 
   #Submenu boolean -start-
   booleanMenu = Menu(basicOps, tearoff=0)
   basicOps.add_cascade(label="Boolean", menu=booleanMenu)
-  booleanMenu.add_command(label="NOT")
-  booleanMenu.add_command(label="AND")
-  booleanMenu.add_command(label="OR")
-  booleanMenu.add_command(label="XOR")
+  booleanMenu.add_command(label="NOT", command=lambda:boolean_not(image_label, image_result_label, result_text_label))
+  booleanMenu.add_command(label="AND", command=lambda:boolean_and(image_label, image_result_label, result_text_label))
+  booleanMenu.add_command(label="OR", command=lambda:boolean_or(image_label, image_result_label, result_text_label))
+  booleanMenu.add_command(label="XOR", command=lambda:boolean_xor(image_label, image_result_label, result_text_label))
   #Submenu boolean -end-
 
   #Submenu geometrics -start-
