@@ -1,12 +1,15 @@
 from tkinter import Menu
 from function.basic_ops_function.add_function import *
 from function.basic_ops_function.negative_function import *
+from function.basic_ops_function.add_function import *
+from function.basic_ops_function.substract_function import *
+from function.basic_ops_function.multiply_function import *
 
-def basic_ops_menu(menubar, image_label):
+def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   #Tab basic ops
   basicOps = Menu(menubar, tearoff=0)
   menubar.add_cascade(label="Basic Ops", menu=basicOps)
-  basicOps.add_command(label="Negative", command=lambda:negative(image_label), )
+  basicOps.add_command(label="Negative", command=lambda:negative(image_label, image_result_label, result_text_label), )
   basicOps.add_command(label="Thresholding")
   basicOps.add_command(label="Convolution")
   basicOps.add_command(label="Fourier Transform")
@@ -14,9 +17,9 @@ def basic_ops_menu(menubar, image_label):
   #Submenu arithmetic -start-
   arithmeticMenu = Menu(basicOps, tearoff=0)
   basicOps.add_cascade(label="Arithmetic", menu=arithmeticMenu)
-  arithmeticMenu.add_command(label="Add (+)", command=add)
-  arithmeticMenu.add_command(label="Subtract (-)")
-  arithmeticMenu.add_command(label="Multiply (x)")
+  arithmeticMenu.add_command(label="Add (+)", command=lambda:add(image_label, image_result_label, result_text_label))
+  arithmeticMenu.add_command(label="Subtract (-)", command=lambda:substract(image_label, image_result_label, result_text_label))
+  arithmeticMenu.add_command(label="Multiply (x)", command=lambda:multiply(image_label, image_result_label, result_text_label))
   arithmeticMenu.add_command(label="Divide (/)")
   #Submenu arithmetic -end-
 

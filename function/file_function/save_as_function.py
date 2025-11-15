@@ -1,7 +1,7 @@
 from tkinter import filedialog, messagebox
 
-def save_as(image_label):
-  if not hasattr(image_label, 'original_image'):
+def save_as(image_result_label):
+  if not hasattr(image_result_label, 'image_result'):
     messagebox.showwarning("Belum ada gambar")
     return
   try:
@@ -16,8 +16,8 @@ def save_as(image_label):
     if not save_path:
       return
     
-    image_label.original_image.save(save_path)
-    image_label.file_path = save_path
+    image_result_label.image_result.save(save_path)
+    image_result_label.file_path = save_path
     messagebox.showinfo("Sukses", f"Gambar berhasil disimpan")
   
   except Exception as e:
