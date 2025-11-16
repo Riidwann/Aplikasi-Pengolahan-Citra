@@ -10,6 +10,10 @@ from function.basic_ops_function.boolean.or_function import *
 from function.basic_ops_function.boolean.xor_function import *
 from function.basic_ops_function.thresholding_function import *
 from function.basic_ops_function.convolution_function import *
+from function.basic_ops_function.fourier_transform_function import *
+from function.basic_ops_function.geometrics.translation_function import *
+from function.basic_ops_function.geometrics.rotation_function import *
+from function.basic_ops_function.geometrics.zooming_function import *
 
 def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   #Tab basic ops
@@ -18,7 +22,7 @@ def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   basicOps.add_command(label="Negative", command=lambda:negative(image_label, image_result_label, result_text_label), )
   basicOps.add_command(label="Thresholding", command=lambda:thresholding(image_label, image_result_label, result_text_label))
   basicOps.add_command(label="Convolution", command=lambda:convolution(image_label, image_result_label, result_text_label))
-  basicOps.add_command(label="Fourier Transform")
+  basicOps.add_command(label="Fourier Transform", command=lambda:fourier_transform(image_label, image_result_label, result_text_label))
 
   #Submenu arithmetic -start-
   arithmeticMenu = Menu(basicOps, tearoff=0)
@@ -41,9 +45,9 @@ def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   #Submenu geometrics -start-
   geometricMenu = Menu(basicOps, tearoff=0)
   basicOps.add_cascade(label="Geometrics", menu=geometricMenu)
-  geometricMenu.add_command(label="Translation")
-  geometricMenu.add_command(label="Rotation")
-  geometricMenu.add_command(label="Zooming")
+  geometricMenu.add_command(label="Translation", command=lambda:translation(image_label, image_result_label, result_text_label))
+  geometricMenu.add_command(label="Rotation", command=lambda:rotation(image_label, image_result_label, result_text_label))
+  geometricMenu.add_command(label="Zooming", command=lambda:zooming(image_label, image_result_label, result_text_label))
   geometricMenu.add_command(label="Flipping")
   geometricMenu.add_command(label="Cropping")
   #Submenu geometrics -end-

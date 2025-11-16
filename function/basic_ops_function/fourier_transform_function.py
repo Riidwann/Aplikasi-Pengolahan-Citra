@@ -1,5 +1,5 @@
 import numpy as np
-from np.fft import fft2, fftshift
+from numpy.fft import fft2, fftshift
 from PIL import Image, ImageTk
 from tkinter import messagebox
 
