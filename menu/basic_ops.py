@@ -14,6 +14,12 @@ from function.basic_ops_function.fourier_transform_function import *
 from function.basic_ops_function.geometrics.translation_function import *
 from function.basic_ops_function.geometrics.rotation_function import *
 from function.basic_ops_function.geometrics.zooming_function import *
+from function.basic_ops_function.geometrics.flipping_function import *
+from function.basic_ops_function.geometrics.cropping_function import *
+from function.basic_ops_function.colouring.binary_function import *
+from function.basic_ops_function.colouring.grayscale_function import *
+from function.basic_ops_function.colouring.rgb_function import *
+from function.basic_ops_function.colouring.hsv_function import *
 
 def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   #Tab basic ops
@@ -48,17 +54,17 @@ def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   geometricMenu.add_command(label="Translation", command=lambda:translation(image_label, image_result_label, result_text_label))
   geometricMenu.add_command(label="Rotation", command=lambda:rotation(image_label, image_result_label, result_text_label))
   geometricMenu.add_command(label="Zooming", command=lambda:zooming(image_label, image_result_label, result_text_label))
-  geometricMenu.add_command(label="Flipping")
-  geometricMenu.add_command(label="Cropping")
+  geometricMenu.add_command(label="Flipping", command=lambda:flipping(image_label, image_result_label, result_text_label))
+  geometricMenu.add_command(label="Cropping", command=lambda:cropping(image_label, image_result_label, result_text_label))
   #Submenu geometrics -end-
-
+ 
   #Submenu colouring -start-
   colouringMenu = Menu(basicOps, tearoff=0)
   basicOps.add_cascade(label="Colouring", menu=colouringMenu)
-  colouringMenu.add_command(label="Binary")
-  colouringMenu.add_command(label="Grayscale")
-  colouringMenu.add_command(label="RGB")
-  colouringMenu.add_command(label="HSV")
+  colouringMenu.add_command(label="Binary", command=lambda:binary(image_label, image_result_label, result_text_label))
+  colouringMenu.add_command(label="Grayscale", command=lambda:grayscale(image_label, image_result_label, result_text_label))
+  colouringMenu.add_command(label="RGB", command=lambda:rgb(image_label, image_result_label, result_text_label))
+  colouringMenu.add_command(label="HSV", command=lambda:hsv(image_label, image_result_label, result_text_label))
   colouringMenu.add_command(label="CMY")
   colouringMenu.add_command(label="YUV")
   colouringMenu.add_command(label="YIQ")
