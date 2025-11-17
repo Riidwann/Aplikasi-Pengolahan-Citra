@@ -20,6 +20,10 @@ from function.basic_ops_function.colouring.binary_function import *
 from function.basic_ops_function.colouring.grayscale_function import *
 from function.basic_ops_function.colouring.rgb_function import *
 from function.basic_ops_function.colouring.hsv_function import *
+from function.basic_ops_function.colouring.cmy_function import *
+from function.basic_ops_function.colouring.yuv_function import *
+from function.basic_ops_function.colouring.yiq_function import *
+from function.basic_ops_function.colouring.pseudo_function import *
 
 def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   #Tab basic ops
@@ -65,8 +69,8 @@ def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   colouringMenu.add_command(label="Grayscale", command=lambda:grayscale(image_label, image_result_label, result_text_label))
   colouringMenu.add_command(label="RGB", command=lambda:rgb(image_label, image_result_label, result_text_label))
   colouringMenu.add_command(label="HSV", command=lambda:hsv(image_label, image_result_label, result_text_label))
-  colouringMenu.add_command(label="CMY")
-  colouringMenu.add_command(label="YUV")
-  colouringMenu.add_command(label="YIQ")
-  colouringMenu.add_command(label="Pseudo")
+  colouringMenu.add_command(label="CMY", command=lambda:cmy(image_label, image_result_label, result_text_label))
+  colouringMenu.add_command(label="YUV", command=lambda:yuv(image_label, image_result_label, result_text_label))
+  colouringMenu.add_command(label="YIQ", command=lambda:yiq(image_label, image_result_label, result_text_label))
+  colouringMenu.add_command(label="Pseudo", command=lambda:pseudo(image_label, image_result_label, result_text_label))
   #Submenu colouring -end-
