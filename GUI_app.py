@@ -1,6 +1,7 @@
 from tkinter import *
 from menu.basic_ops import *
 from menu.file import *
+from menu.edge_detection import *
 
 #Setup window
 window = Tk()
@@ -39,5 +40,8 @@ file_menu(menubar, image_label, window, image_result_label)
 
 #Tab operasi
 basic_ops_menu(menubar, image_label, image_result_label, result_text_label)
+
+#Tab edge detection
+edge_detection_menu(menubar, image_label, image_result_label, result_text_label)
 
 window.mainloop()
