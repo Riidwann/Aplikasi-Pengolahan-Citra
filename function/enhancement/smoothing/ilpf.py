@@ -1,16 +1,18 @@
-# function/enhancement/sharpening/ihpf.py
+# function/enhancement/smoothing/ilpf.py
 import cv2
 import numpy as np
 
-def ihpf_filter_cv(img_cv, D0=30):
+def ilpf_filter_cv(img_cv, D0=30):
+    """Ideal lowpass filter on grayscale (returns BGR)"""
     if img_cv is None:
         return None
-    gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY) if len(img_cv.shape)==3 else img_cv
     rows, cols = gray.shape
     dft = cv2.dft(np.float32(gray), flags=cv2.DFT_COMPLEX_OUTPUT)
     fshift = np.fft.fftshift(dft)
-    mask = np.ones((rows, cols, 2), np.uint8)
-    cv2.circle(mask, (cols//2, rows//2), int(D0), (0,0), -1)  # block low freq
+    crow, ccol = rows//2, cols//2
+    mask = np.zeros((rows, cols, 2), np.uint8)
+    cv2.circle(mask, (ccol, crow), int(D0), (1,1), -1)
     fshift = fshift * mask
     f_ishift = np.fft.ifftshift(fshift)
     img_back = cv2.idft(f_ishift)

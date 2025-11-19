@@ -1,2 +1,2 @@
-# enhancement/sharpening/__init__.py
+# function/enhancement/sharpening/__init__.py
 __all__ = ["highpass", "highboost", "ihpf", "bhpf"]

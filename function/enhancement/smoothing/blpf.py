@@ -1,11 +1,12 @@
-# function/enhancement/sharpening/bhpf.py
+# function/enhancement/smoothing/blpf.py
 import cv2
 import numpy as np
 
-def bhpf_filter_cv(img_cv, D0=30, n=2):
+def blpf_filter_cv(img_cv, D0=30, n=2):
+    """Butterworth lowpass (grayscale -> return BGR)"""
     if img_cv is None:
         return None
-    gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY) if len(img_cv.shape)==3 else img_cv
     rows, cols = gray.shape
     dft = cv2.dft(np.float32(gray), flags=cv2.DFT_COMPLEX_OUTPUT)
     fshift = np.fft.fftshift(dft)
@@ -14,9 +15,8 @@ def bhpf_filter_cv(img_cv, D0=30, n=2):
     V, U = np.meshgrid(v, u)
     crow, ccol = rows//2, cols//2
     D = np.sqrt((U-crow)**2 + (V-ccol)**2)
-    Hlp = 1.0 / (1.0 + (D/(D0+1e-8))**(2*n))
-    Hhp = 1.0 - Hlp
-    H = np.stack([Hhp, Hhp], axis=-1).astype(np.float32)
+    H = 1.0 / (1.0 + (D/(D0+1e-8))**(2*n))
+    H = np.stack([H, H], axis=-1).astype(np.float32)
     fshift = fshift * H
     f_ishift = np.fft.ifftshift(fshift)
     img_back = cv2.idft(f_ishift)

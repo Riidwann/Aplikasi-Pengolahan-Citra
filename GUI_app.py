@@ -2,8 +2,10 @@ from tkinter import *
 from menu.basic_ops import *
 from menu.file import *
 from menu.edge_detection import *
+from menu.enhancement import enhancement_menu
 
-#Setup window
+
+#Setup windowp
 window = Tk()
 window.geometry("800x600")
 window.title("Aplikasi Pengolahan Citra Digital-copyright © ekstrakDaunBajakah.Dev(2025)")
@@ -43,5 +45,8 @@ basic_ops_menu(menubar, image_label, image_result_label, result_text_label)
 
 #Tab edge detection
 edge_detection_menu(menubar, image_label, image_result_label, result_text_label)
+
+#Tab enhancement
+enhancement_menu(menubar, image_label, image_result_label, result_text_label)
 
 window.mainloop()
