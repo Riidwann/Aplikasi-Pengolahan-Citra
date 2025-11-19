@@ -4,7 +4,7 @@ from menu.file import *
 from menu.noise import *
 from menu.edge_detection import *
 from menu.enhancement import enhancement_menu
-
+from menu.about import *
 
 #Setup windowp
 window = Tk()
@@ -52,5 +52,8 @@ edge_detection_menu(menubar, image_label, image_result_label, result_text_label)
 
 #Tab enhancement
 enhancement_menu(menubar, image_label, image_result_label, result_text_label)
+
+#Tab info
+about(menubar)
 
 window.mainloop()
