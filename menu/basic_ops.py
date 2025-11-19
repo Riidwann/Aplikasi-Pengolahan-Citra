@@ -29,7 +29,7 @@ def basic_ops_menu(menubar, image_label, image_result_label, result_text_label):
   #Tab basic ops
   basicOps = Menu(menubar, tearoff=0)
   menubar.add_cascade(label="Basic Ops", menu=basicOps)
-  basicOps.add_command(label="Negative", command=lambda:negative(image_label, image_result_label, result_text_label), )
+  basicOps.add_command(label="Negative", command=lambda:negative(image_label, image_result_label, result_text_label))
   basicOps.add_command(label="Thresholding", command=lambda:thresholding(image_label, image_result_label, result_text_label))
   basicOps.add_command(label="Convolution", command=lambda:convolution(image_label, image_result_label, result_text_label))
   basicOps.add_command(label="Fourier Transform", command=lambda:fourier_transform(image_label, image_result_label, result_text_label))
