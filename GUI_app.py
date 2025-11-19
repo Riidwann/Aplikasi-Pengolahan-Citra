@@ -3,6 +3,7 @@ from menu.basic_ops import *
 from menu.file import *
 from menu.noise import *
 from menu.edge_detection import *
+from menu.about import *
 
 #Setup window
 window = Tk()
@@ -47,5 +48,8 @@ noise_menu(menubar, image_label, image_result_label, result_text_label)
 
 #Tab edge detection
 edge_detection_menu(menubar, image_label, image_result_label, result_text_label)
+
+#Tab info
+about(menubar)
 
 window.mainloop()
