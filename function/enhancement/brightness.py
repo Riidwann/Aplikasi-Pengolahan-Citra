@@ -1,15 +1,9 @@
-# enhancement/brightness.py
+# function/enhancement/brightness.py
 import cv2
 import numpy as np
 
-def adjust_brightness(img_cv, value=30):
-    """
-    Simple brightness adjustment: add value to pixels (clamped).
-    img_cv: BGR OpenCV image (numpy)
-    value: int (-255..255)
-    """
+def adjust_brightness_cv(img_cv, value=30):
+    """Return brightness adjusted image (cv2 BGR). value: -255..255"""
     if img_cv is None:
         return None
-    # convert to int16 to avoid overflow then clip
-    out = cv2.convertScaleAbs(img_cv, alpha=1.0, beta=value)
-    return out
+    return cv2.convertScaleAbs(img_cv, alpha=1.0, beta=int(value))
