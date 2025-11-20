@@ -1,4 +1,4 @@
-from tkinter import filedialog, messagebox
+from tkinter import messagebox
 from function.file_function.save_as_function import *
 
 def save(image_result):
