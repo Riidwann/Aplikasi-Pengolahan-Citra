@@ -2,6 +2,7 @@ from tkinter import messagebox, simpledialog
 from PIL import Image, ImageTk 
 import numpy as np
 
+# Fungsi untuk menambahkan Rayleigh Noise pada gambar
 def rayleigh_noise(image_label, image_result_label, result_text_label):
   if not hasattr(image_label, 'original_image'):
     messagebox.showwarning("Error", "Belum ada gambar")
@@ -22,7 +23,7 @@ def rayleigh_noise(image_label, image_result_label, result_text_label):
   except Exception as e:
     messagebox.showerror("Error", f"Input tidak valid: {e}")
     return
-  
+  # Menambahkan Rayleigh Noise pada gambar
   try:
     img_a = image_label.original_image
     img_rgb = img_a.convert('RGB')
@@ -35,7 +36,7 @@ def rayleigh_noise(image_label, image_result_label, result_text_label):
     
     result_array = noisy_array.astype(np.uint8)
     result_img = Image.fromarray(result_array, 'RGB')
-  
+    # Menyimpan hasil pada label hasil
     image_result_label.image_result = result_img
 
     img_display = result_img.copy()

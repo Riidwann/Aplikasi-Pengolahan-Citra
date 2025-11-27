@@ -2,14 +2,15 @@ from tkinter import messagebox, simpledialog
 from PIL import Image, ImageTk 
 import numpy as np
 
+# Fungsi untuk menambahkan Uniform Noise pada gambar
 def uniform_noise(image_label, image_result_label, result_text_label):
   if not hasattr(image_label, 'original_image'):
     messagebox.showwarning("Error", "Belum ada gambar")
     return
-  
+  # Meminta input parameter dari user
   try:
     parent_window = image_label.winfo_toplevel()
-    
+    # Minta input batas bawah
     low_val = simpledialog.askfloat(
         "Uniform Noise (1/2)", 
         "Masukkan batas BAWAH noise (misal: -50.0):",
@@ -20,7 +21,7 @@ def uniform_noise(image_label, image_result_label, result_text_label):
     )
     if low_val is None: 
       return
-
+    # Minta input batas atas
     high_val = simpledialog.askfloat(
         "Uniform Noise (2/2)", 
         "Masukkan batas ATAS noise (misal: 50.0):",
@@ -39,7 +40,7 @@ def uniform_noise(image_label, image_result_label, result_text_label):
   except Exception as e:
     messagebox.showerror("Error", f"Input tidak valid: {e}")
     return
-  
+  # Menambahkan Uniform Noise pada gambar
   try:
     img_a = image_label.original_image
   
@@ -54,7 +55,7 @@ def uniform_noise(image_label, image_result_label, result_text_label):
 
     result_array = noisy_array.astype(np.uint8)
     result_img = Image.fromarray(result_array, 'RGB')
-
+    # Menyimpan hasil pada label hasil
     image_result_label.image_result = result_img
 
     img_display = result_img.copy()

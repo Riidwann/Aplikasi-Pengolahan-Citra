@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 import numpy as np
 import random
 
+# Fungsi untuk menambahkan Impulse (Salt & Pepper) Noise pada gambar
 def impulse_noise(image_label, image_result_label, result_text_label):
   if not hasattr(image_label, 'original_image'):
     messagebox.showwarning("Error", "Belum ada gambar")
@@ -22,7 +23,7 @@ def impulse_noise(image_label, image_result_label, result_text_label):
   except Exception as e:
     messagebox.showerror("Error", f"Input tidak valid: {e}")
     return
-
+  # Menambahkan Impulse (Salt & Pepper) Noise pada gambar
   try:
     img_a = image_label.original_image
 
@@ -48,7 +49,7 @@ def impulse_noise(image_label, image_result_label, result_text_label):
         noisy_array[y, x] = 0 # Set ke Hitam
 
     result_img = Image.fromarray(noisy_array, 'RGB')
-    
+    # Menyimpan hasil pada label hasil
     image_result_label.image_result = result_img
 
     img_display = result_img.copy()
