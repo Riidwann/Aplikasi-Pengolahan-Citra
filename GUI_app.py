@@ -115,13 +115,8 @@ file_menu(menubar, image_label, window, image_result_label)
 basic_ops_menu(menubar, image_label, image_result_label, result_text_label)
 noise_menu(menubar, image_label, image_result_label, result_text_label)
 edge_detection_menu(menubar, image_label, image_result_label, result_text_label)
-
-#Tab enhancement
 enhancement_menu(menubar, image_label, image_result_label, result_text_label)
 segmentation_menu(menubar, image_label, image_result_label, result_text_label)
-about(menubar)
-
-#Tab info
 about(menubar)
 
 window.mainloop()
