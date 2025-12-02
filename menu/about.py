@@ -26,4 +26,4 @@ def about(menubar):
     about_menu.add_separator()
     about_menu.add_command(label="Find us at:", state="disabled")
     about_menu.add_command(label="  Source Code", command=lambda: open_url("https://github.com/Riidwann"))
-    about_menu.add_command(label="  YouTube", command=lambda: open_url("https://youtube.com/channel-anda"))
+    about_menu.add_command(label="  YouTube", command=lambda: open_url("https://youtu.be/z0niqK8Su8Q?feature=shared"))
