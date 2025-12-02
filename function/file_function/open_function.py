@@ -2,25 +2,40 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 
 def open_file(image_label):
-  file_types = [
-    ("Image Files", "*.png *.jpg"),
-    ("All Files", "*.*")
-  ]
-  file_path = filedialog.askopenfilename(filetypes=file_types)
+    # Definisi ekstensi
+    file_types = [
+        ("Image Files", "*.png *.jpg"),
+        ("All Files", "*.*")
+    ]
+    
+    # Dialog pemilihan file
+    file_path = filedialog.askopenfilename(filetypes=file_types)
 
-  if not file_path:
-    return
-  
-  try:
-    original_image = Image.open(file_path)
-    original_image.thumbnail((200, 200))
-    image_label.file_path = file_path
-    image_label.original_image = original_image
+    # Validasi path kosong
+    if not file_path:
+        return
+    
+    try:
+        # Inisialisasi objek gambar
+        original_image = Image.open(file_path)
+        
+        # Ukuran (thumbnail)
+        original_image.thumbnail((200, 200))
+        
+        # Referensi atribut
+        image_label.file_path = file_path
+        image_label.original_image = original_image
 
-    image_display = original_image.copy()
-    tk_image = ImageTk.PhotoImage(image_display)
-    image_label.config(image=tk_image)
-    image_label.image = tk_image
+        # Duplikasi untuk tampilan
+        image_display = original_image.copy()
+        
+        # Konversi format Tkinter
+        tk_image = ImageTk.PhotoImage(image_display)
+        
+        # Pembaruan visual widget
+        image_label.config(image=tk_image)
+        image_label.image = tk_image
 
-  except Exception as e:
-    print(f"Gagal membuka file:{e}")
+    except Exception as e:
+        # Penanganan error
+        print(f"Gagal membuka file:{e}")
