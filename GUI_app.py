@@ -4,6 +4,7 @@ from menu.basic_ops import *
 from menu.file import *
 from menu.noise import *
 from menu.edge_detection import *
+from menu.about import *
 from menu.enhancement import enhancement_menu
 from menu.segmentation import *
 from menu.about import *

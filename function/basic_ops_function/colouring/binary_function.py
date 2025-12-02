@@ -3,11 +3,13 @@ from PIL import ImageTk
 from numpy.fft import fft2, fftshift
 
 def binary(image_label, image_result_label, result_text_label):
+  # Validasi keberadaan gambar sumber
   if not hasattr(image_label, 'original_image'):
     messagebox.showwarning("Error", "Belum ada gambar")
     return
   
   try:
+    # Dialog input nilai ambang batas (threshold)
     thresh_val = simpledialog.askinteger(
         "Binary Threshold", 
         "Masukkan nilai threshold (0-255):",
@@ -16,28 +18,40 @@ def binary(image_label, image_result_label, result_text_label):
         maxvalue=255,
     )
     
+    # Penanganan pembatalan input
     if thresh_val is None:
       return
       
   except Exception as e:
+    # Notifikasi error input
     messagebox.showerror("Error", f"Input tidak valid: {e}")
     return
   
   try:
+    # Referensi gambar asli
     img_a = image_label.original_image
-    img_gray = img_a.convert('L')
+    # Konversi ke grayscale 
+    img_gray = img_a.convert('L') #Luminance
     result_img = img_gray.point(lambda p: 255 if p > thresh_val else 0)
     
+    # Konversi ke mode RGB
     result_img = result_img.convert('RGB')
+    # Penyimpanan hasil pada atribut label
     image_result_label.image_result = result_img
+    # Duplikasi dan resize untuk preview
     img_display = result_img.copy()
     img_display.thumbnail((760,560))
 
+    # Konversi ke format Tkinter
     tk_image = ImageTk.PhotoImage(img_display)
     
+    # Rendering gambar ke layar
     image_result_label.config(image=tk_image)
+    # Pencegahan penghapusan memori otomatis
     image_result_label.image = tk_image
+    # Update teks label status
     result_text_label.config(text=f"Hasil Operasi Binary")
 
   except Exception as e:
+      # Penanganan eksepsi proses
       messagebox.showerror("Error", f"Gagal melakukan binary: {e}")
